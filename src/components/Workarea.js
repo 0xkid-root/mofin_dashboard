@@ -107,6 +107,7 @@ export default function Workarea() {
 
         </div>
 
+
         <div className="col-xl-3 col-lg-4">
 
           <div className="fundallocation mb-4">
@@ -223,9 +224,9 @@ export default function Workarea() {
                   aria-valuemin="0"
                   aria-valuemax="100"
                 >
-                  <div className="progress-bar" style={{ width: "25%" }}></div>
+                  <div className="progress-bar" style={{ width: "45%" }}></div>
                 </div>
-                <span>71,68%</span>
+                <span>718%</span>
               </div>
             </div>
 

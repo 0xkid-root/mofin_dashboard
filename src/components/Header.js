@@ -55,11 +55,13 @@ export default function Header() {
               <div className='notification mobs'>
                 <img src={search} alt="Search" />
               </div>
+
               <div className="btn-group">
                 <button type="button" className="notification bg-transparent p-0 border-0 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src={noti} alt="Notifications" />
                   <span>5</span>
                 </button>
+
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li><button className="dropdown-item" type="button">Action</button></li>
                   <li><button className="dropdown-item" type="button">Another action</button></li>
