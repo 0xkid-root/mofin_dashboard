@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Dashboard from '../assets/images/List-Menu.svg';
-import Market from '../assets/images/trade.png';
+import Dashboard from '../assets/images/dasboard.svg';
+import Market from '../assets/images/trade.svg';
 import Wallet from '../assets/images/Group.svg';
 import Staking from '../assets/images/donate.svg';
 import Loans from '../assets/images/protocols.svg';
