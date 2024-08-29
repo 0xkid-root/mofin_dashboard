@@ -2,7 +2,12 @@ import React from "react";
 import Value from "../assets/images/Value.png";
 import ROI from "../assets/images/roi.png";
 import Invested from "../assets/images/Invested.png";
-import Lmge1 from "../assets/images/bitcoin.png";
+import bitcoin from "../assets/images/bitcoin.png";
+import shiba from "../assets/images/shiba.png"
+import ethereum from "../assets/images/ethereum.png";
+import solana from "../assets/images/solona.png";
+import tether from "../assets/images/tether.png";
+
 import Socal from "../assets/images/socal.png";
 import Anon from "../assets/images/asset.png";
 import anam from "../assets/images/asset1.png";
@@ -12,7 +17,7 @@ import gr from "../assets/images/gr.png";
 export default function Workarea() {
   return (
     <div className="main-container">
-      <h4 className="text-white mb-4 d-blovk d-lg-none">
+      <h4 className="text-black mb-4 d-blovk d-lg-none">
         Welcome Back, Arkhan
       </h4>
 
@@ -59,7 +64,7 @@ export default function Workarea() {
           <div className="row">
 
             <div className="col-sm-4 mb-4" >
-              <div className="card cardcustom" style={{border:'none'}}>
+              <div className="card cardcustom" style={{border:'none',background:'none'}}>
                 <div className="card-body p-0" style={{border:'none'}}>
                   <img className="w-100" src={Anon}></img>
                 </div>
@@ -70,8 +75,8 @@ export default function Workarea() {
             </div>
 
             <div className="col-sm-4 mb-4">
-              <div className="card cardcustom">
-                <div className="card-body p-0">
+              <div className="card cardcustom" style={{border:'none'}}>
+                <div className="card-body p-0" style={{border:'none'}}>
                   <img className="w-100" src={anam}></img>
                 </div>
                 {/*                <div className="card-footer">
@@ -81,8 +86,8 @@ export default function Workarea() {
             </div>
 
             <div className="col-sm-4 mb-4">
-              <div className="card cardcustom">
-                <div className="card-body p-0">
+              <div className="card cardcustom" style={{border:'none'}}>
+                <div className="card-body p-0" style={{border:'none'}}>
                   <img className="w-100" src={anon}></img>
                 </div>
                 {/*                <div className="card-footer">
@@ -99,17 +104,46 @@ export default function Workarea() {
               </div>
             </div>
           </div>
+
         </div>
+
         <div className="col-xl-3 col-lg-4">
+
           <div className="fundallocation mb-4">
             <h4 className="fund_title">Fund Allocation</h4>
+
             <div className="findlist">
+
               <div className="fundimg">
                 <div className="imge1">
-                  <img src={Lmge1}></img>
+                  <img src={bitcoin}></img>
                 </div>
                 <div className="name">Bitcoin</div>
                 <div className="amount ms-auto">$2,000</div>
+              </div>
+
+              <div className="progressbar">
+                <div
+                  className="progress"
+                  role="progressbar"
+                  aria-label="Basic example"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div className="progress-bar" style={{ width: "25%" }}></div>
+                </div>
+                <span>71,68%</span>
+              </div>
+            </div>
+
+            <div className="findlist">
+              <div className="fundimg">
+                <div className="imge1">
+                  <img src={ethereum}></img>
+                </div>
+                <div className="name">Ethereum</div>
+                <div className="amount ms-auto">$1,000</div>
               </div>
               <div className="progressbar">
                 <div
@@ -125,13 +159,14 @@ export default function Workarea() {
                 <span>71,68%</span>
               </div>
             </div>
+
             <div className="findlist">
               <div className="fundimg">
                 <div className="imge1">
-                  <img src={Lmge1}></img>
+                  <img src={shiba}></img>
                 </div>
-                <div className="name">Bitcoin</div>
-                <div className="amount ms-auto">$2,000</div>
+                <div className="name">Shiba</div>
+                <div className="amount ms-auto">$500</div>
               </div>
               <div className="progressbar">
                 <div
@@ -147,13 +182,14 @@ export default function Workarea() {
                 <span>71,68%</span>
               </div>
             </div>
+
             <div className="findlist">
               <div className="fundimg">
                 <div className="imge1">
-                  <img src={Lmge1}></img>
+                  <img src={solana}></img>
                 </div>
-                <div className="name">Bitcoin</div>
-                <div className="amount ms-auto">$2,000</div>
+                <div className="name">Solana</div>
+                <div className="amount ms-auto">$500</div>
               </div>
               <div className="progressbar">
                 <div
@@ -169,13 +205,14 @@ export default function Workarea() {
                 <span>71,68%</span>
               </div>
             </div>
+
             <div className="findlist">
               <div className="fundimg">
                 <div className="imge1">
-                  <img src={Lmge1}></img>
+                  <img src={tether}></img>
                 </div>
-                <div className="name">Bitcoin</div>
-                <div className="amount ms-auto">$2,000</div>
+                <div className="name">Tether</div>
+                <div className="amount ms-auto">$500</div>
               </div>
               <div className="progressbar">
                 <div
@@ -191,30 +228,12 @@ export default function Workarea() {
                 <span>71,68%</span>
               </div>
             </div>
-            <div className="findlist">
-              <div className="fundimg">
-                <div className="imge1">
-                  <img src={Lmge1}></img>
-                </div>
-                <div className="name">Bitcoin</div>
-                <div className="amount ms-auto">$2,000</div>
-              </div>
-              <div className="progressbar">
-                <div
-                  className="progress"
-                  role="progressbar"
-                  aria-label="Basic example"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  <div className="progress-bar" style={{ width: "25%" }}></div>
-                </div>
-                <span>71,68%</span>
-              </div>
-            </div>
+
+
             <button className="btn viewall w-100">View All</button>
           </div>
+
+
           <div className="fundallocation mb-4 text-center">
             <img className="img-gluid" src={Socal}></img>
             <h5 className="text-black mt-4" style={{ fontSize: "16px" }}>

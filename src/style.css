@@ -277,6 +277,7 @@ input::-ms-input-placeholder {
     margin-left: 261px;
 }
 .top-data{
+    /* opacity: 60%; */
     background: rgba(255, 255, 255, 1);
     border-radius: 12px;
     padding: 20px 30px 0 30px;
@@ -309,7 +310,91 @@ input::-ms-input-placeholder {
     color: rgba(0, 0, 0, 1);
     margin-bottom: 0;
 }
-.fundallocation{
+
+.fundallocation {
+    background: rgba(255, 255, 255, 1);
+    width: 100%;
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.fund_title {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.findlist {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.findlist .fundimg {
+    display: flex;
+    align-items: center;
+}
+
+.findlist .fundimg .imge1 {
+   width: 32px;
+   height: 32px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   margin-right: 10px;
+   border-radius: 50%; 
+   background: #e0e0e0;
+}
+
+.findlist .fundimg .imge1 img {
+   width: 80%; 
+   height: auto;
+   max-height: 100%;
+   border-radius: 50%;
+}
+
+.findlist .fundimg .name {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+}
+
+.findlist .fundimg .amount {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.findlist .progressbar {
+    margin-top: 12px;    
+    position: relative;
+}
+
+.findlist .progressbar .progress {
+    background: #353535;
+    width: calc(100% - 55px);
+    height: 8px;
+}
+
+.findlist .progressbar .progress .progress-bar {
+    background: #774F81;
+}
+
+.findlist .progressbar span {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    right: 0;
+    top: -8px;
+}
+
+/* fundallocation code  */
+
+/* .fundallocation{
     background: rgba(255, 255, 255, 1);
     width: 100%;
     border-radius: 16px;
@@ -335,8 +420,8 @@ input::-ms-input-placeholder {
    height: 32px;
    text-align: center;
    margin-right: 10px;
-   border-radius: 30px;
-   background: #2C252D;
+   border-radius: 50%;
+   background: #f4eded6e;
 }
 .findlist .fundimg .imge1 img{
    width: 100%;
@@ -373,7 +458,9 @@ input::-ms-input-placeholder {
     position: absolute;
     right: 0;
     top: -8px;
-}
+} */
+
+
 .viewall{
     background:rgba(0, 0, 0, 1);
     font-weight: 500;
@@ -387,6 +474,8 @@ input::-ms-input-placeholder {
     color: #fff !important;
     border: 1px solid #353434 !important;
 }
+
+
 .cardcustom{
     /* background: #353434 ; */
     border-radius: 12px;
@@ -409,16 +498,30 @@ input::-ms-input-placeholder {
     top: 0;
     left: 0;
 }
-
-
-
 .cardcustom .card-body img{
     transition: transform .2s;
+    
 }
 .cardcustom:hover .card-body img{
     
     transform: scale(1.1);
 }
+
+
+.cardcustom .card-body img {
+    border: none;
+    transition: transform 0.2s;
+}
+
+.cardcustom:hover .card-body img {
+    transform: scale(1.1);
+}
+
+img {
+    border: none;
+}
+
+
 .cardcustom .card-footer{
     /* background: rgba(255, 255, 255, 1); */
     padding: 15px;
@@ -443,7 +546,9 @@ input::-ms-input-placeholder {
     background-image:url(../src/assets/images/bar.svg);
 }
 .top-menu.scrolled{
-    background: #f4eded;
+    backdrop-filter: blur(20px);
+    background: #f4eded6e;
+    /* background: #f4eded; */
     top: 0;
     padding-top: 30px;
     padding-bottom: 30px;
