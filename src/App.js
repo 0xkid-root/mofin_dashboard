@@ -13,7 +13,7 @@ import "../src/style.css";
 function App() {
   const { authenticated } = usePrivy();
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
 
   useEffect(() => {
     if (authenticated) {
@@ -22,22 +22,15 @@ function App() {
   }, [authenticated, navigate]);
 
   useEffect(() => {
-
-    if (location.pathname === '/user') {
-      document.body.classList.add('user-route');
-    } else {
-      document.body.classList.remove('user-route');
-    }
+    // No need to toggle classes or additional styling based on routes
   }, [location.pathname]);
 
   return (
     <React.Fragment>
-      {!authenticated && location.pathname !== '/user' && (
-        <>
-          <ParticlesComponent />
-          <NavbarSection />
-        </>
-      )}
+      <ParticlesComponent />
+
+      {/* Conditionally render NavbarSection based on authentication */}
+      {!authenticated && <NavbarSection />}
 
       <Routes>
         <Route
@@ -50,6 +43,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* Other routes can be added here */}
       </Routes>
     </React.Fragment>
   );

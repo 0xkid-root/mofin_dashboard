@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Dashboard from '../assets/images/List-Menu.svg';
-import Market from '../assets/images/trade.svg';
+import Market from '../assets/images/trade.png';
 import Wallet from '../assets/images/Group.svg';
 import Staking from '../assets/images/donate.svg';
 import Loans from '../assets/images/protocols.svg';
@@ -18,10 +18,7 @@ export default function Sidemenu() {
     setIsToggled(!isToggled);
   };
 
-  const handleLogout = () => {
-      logout();
-    
-  };
+
 
   return (
     <>
@@ -38,7 +35,7 @@ export default function Sidemenu() {
           <li><a href='@!'> <img src={Settings} alt="Settings" /> <span>Settings</span></a></li>
           <li><a href='@!'> <img src={user} alt="Profile" /> <span>Profile</span></a></li>
           <li className='mt-auto'>
-            <a href='' onClick={handleLogout}>
+            <a href='' onClick={logout}>
               <img src={LogOut} alt="Log Out" /> <span>Log Out</span>
             </a>
           </li>

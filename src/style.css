@@ -1,24 +1,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/* Global styles for all routes */
-/* General body styles */
-body {
+/* body {
     padding: 40px;
     font-family: "Inter", sans-serif;
     position: relative;
     margin: 0;
+    background-image: url(../src/assets/images/background.png);
+
 }
 
-/* Background for the /user route */
 body.user-route {
-    background: #080808;
+    background: #080808; 
 }
 
-/* Background for the /user route with additional styling */
 body.user-route::after {
     content: '';
-    background-image: url(../src/assets/images/BG.svg);
+    background-image: url(../src/assets/images/background.png);
     height: 100vh;
     width: 100%;
     position: fixed;
@@ -29,15 +27,53 @@ body.user-route::after {
     z-index: -1;
 }
 
-/* Background for non-/user routes (using iframe) */
 body:not(.user-route)::after {
     content: '';
-    /* background: #080808; */
     height: 100vh;
     width: 100%;
     position: fixed;
     z-index: -1;
+} */
+
+body {
+    padding: 40px;
+    font-family: "Inter", sans-serif;
+    position: relative;
+    margin: 0;
 }
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8c8989;
+    opacity: 0.09;
+    z-index: -2;
+}
+
+.particles-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    overflow: hidden;
+}
+
+.background-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: -1;
+}
+
 
 .top-right-menu{
     width: calc(100% - 250px);
@@ -50,18 +86,33 @@ body:not(.user-route)::after {
     font-family: "Roboto", sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #fff;
+    color: rgba(0, 0, 0, 1);
     padding-left: 20px;
 }
 .top-right-menu .search{ 
     height: 48px;
 }
+
+input::placeholder {
+    color: #000000;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder {
+    color: #000000;
+}
+
+input::-ms-input-placeholder {
+    color: #000000;
+}
+
 .top-right-menu .search .input-group{ 
     height: 48px;
     border-radius: 16px;
-    background: #1C1F25;
+    background: rgba(255, 255, 255, 1);
     min-width: 368px;
     border: none;
+    /* border: 2px solid gray; */
 }
 .top-right-menu .search .input-group-text{ 
     background: transparent;
@@ -179,6 +230,8 @@ body:not(.user-route)::after {
     display: flex; 
     flex-direction: column;
     padding-top: 20px;
+    list-style-type: none;
+    
 }
 .sidemenu ul li{
     width: 100%;
@@ -189,15 +242,23 @@ body:not(.user-route)::after {
    border-radius: 16px;
    padding: 16px 16px;
    font-size: 18px;
-   color: #fff;
+   color: black;
    font-weight: 500;
    text-decoration: none;
 }
 .sidemenu ul li a:hover{
     background: #1c1f25;
+    color: white;
 }
+.sidemenu ul li a:hover img {
+    filter: invert(1); /* Change SVG color to white on hover */
+}
+
+
 .sidemenu ul li a.active{
-    background: linear-gradient(101.05deg, #1F8EBE -5.36%, #440495 29.46%, #440495 56.03%, #B102CD 81.92%);
+    /* background: linear-gradient(101.05deg, #1F8EBE -5.36%, #440495 29.46%, #440495 56.03%, #B102CD 81.92%); */
+    background: rgba(25, 27, 32, 1);
+    color: white;
 }
 .sidemenu ul li a img{
     width: 24px;
@@ -216,7 +277,7 @@ body:not(.user-route)::after {
     margin-left: 261px;
 }
 .top-data{
-    background: #1c1c1cb3;
+    background: rgba(255, 255, 255, 1);
     border-radius: 12px;
     padding: 20px 30px 0 30px;
     display: flex;
@@ -228,8 +289,8 @@ body:not(.user-route)::after {
     padding-bottom: 20px;
 }
 .state-value .icon{
-    width: 60px;
-    height:60px ;
+    width: 40px;
+    height:40px ;
     border-radius: 14px;
     margin-right: 20px;
 }
@@ -239,17 +300,17 @@ body:not(.user-route)::after {
 .state-value .valume p{
     font-size: 14px;
     font-weight: 400;
-    color: #fff;
-    margin-bottom: 8px;
+    color:rgba(0, 0, 0, 1);
+    margin-bottom: 4px;
 }
 .state-value .valume h1{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
-    color: #fff;
+    color: rgba(0, 0, 0, 1);
     margin-bottom: 0;
 }
 .fundallocation{
-    background: #1c1c1c60;
+    background: rgba(255, 255, 255, 1);
     width: 100%;
     border-radius: 16px;
     padding: 30px;
@@ -257,7 +318,7 @@ body:not(.user-route)::after {
 .fund_title{
     font-family: "Roboto", sans-serif;
     font-size: 18px;
-    color: #fff;
+    color: rgba(0, 0, 0, 1);
     font-weight: 500;
     margin-bottom: 25px;
 }
@@ -283,12 +344,12 @@ body:not(.user-route)::after {
 }
 .findlist .fundimg .name{
     font-size: 16px;
-    color: #fff;
+    color: rgba(0, 0, 0, 1);
     font-weight: 600;
 }
 .findlist .fundimg .amount{
     font-size: 16px;
-    color: #fff;
+    color: rgba(0, 0, 0, 1);
     font-weight: 600;
 }
 .findlist .progressbar{
@@ -308,13 +369,13 @@ body:not(.user-route)::after {
 .findlist .progressbar span{
     font-size: 14px;
     font-weight: 600;
-    color: #fff;
+    color: rgba(0, 0, 0, 1);
     position: absolute;
     right: 0;
     top: -8px;
 }
 .viewall{
-    background: #2B2B2B;
+    background:rgba(0, 0, 0, 1);
     font-weight: 500;
     color: #fff;
     border-radius: 12px;
@@ -327,26 +388,30 @@ body:not(.user-route)::after {
     border: 1px solid #353434 !important;
 }
 .cardcustom{
-    background: #353434 ;
+    /* background: #353434 ; */
     border-radius: 12px;
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
     overflow: hidden;
     position: relative;
 }
 .cardcustom:hover{
-    border: 1px solid #fff;
+    /* border: 20px solid #fff; */
     cursor: pointer;
 }
 .cardcustom .card-body::after{
     content: '';
-    background:#372D3D;
-    opacity: 20%;
+    /* background:red; */
+    /* opacity: 20%; */
     position: absolute;
     width: 100%;
     height: 100%;
+    border: none !important;
     top: 0;
     left: 0;
 }
+
+
+
 .cardcustom .card-body img{
     transition: transform .2s;
 }
@@ -355,7 +420,7 @@ body:not(.user-route)::after {
     transform: scale(1.1);
 }
 .cardcustom .card-footer{
-    background: #191619;
+    /* background: rgba(255, 255, 255, 1); */
     padding: 15px;
     color: #fff;
     font-weight: 500;
@@ -365,7 +430,7 @@ body:not(.user-route)::after {
     color: #B001CD;
 }
 .chartmain{
-    background: #1C1C1C;
+    background: rgba(255, 255, 255, 1);
     border-radius: 16px;
     padding: 20px 40px;
 }
@@ -378,7 +443,7 @@ body:not(.user-route)::after {
     background-image:url(../src/assets/images/bar.svg);
 }
 .top-menu.scrolled{
-    background: #171617;
+    background: #f4eded;
     top: 0;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -526,3 +591,14 @@ body:not(.user-route)::after {
         font-size: 14px;
     }
   }
+
+
+  /* Hide the default Bootstrap dropdown caret */
+.btn-group .dropdown-toggle::after {
+    display: none;
+}
+
+/* Optional: Add padding or styling to adjust for the missing caret */
+.btn-group .dropdown-toggle {
+    padding-right: 8px; /* Adjust if needed */
+}
