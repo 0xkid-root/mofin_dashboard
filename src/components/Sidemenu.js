@@ -13,9 +13,8 @@ import { Link } from 'react-router-dom';
 export default function Sidemenu() {
   const { logout, ready, authenticated } = usePrivy();
   const [isToggled, setIsToggled] = useState(false);
-  console.log("logout is here:", logout);
+  // console.log("logout is here:", logout);
 
-  // Function to handle button click
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };

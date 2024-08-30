@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
-  Routes, 
+  Routes,
   Route,
   useNavigate,
   useLocation,
@@ -20,18 +20,31 @@ import WalletSection from "./components/Pages/WalletSection";
 import StackingSection from "./components/Pages/StackingSection";
 import LoansSection from "./components/Pages/LoansSection";
 import ProfileSection from "./components/Pages/ProfileSection";
+import ForbiddenSection from "./components/ErrorPage/ForbiddenSection";
+import LoadingComponent from './components/LoadingPage/LoadingComponent';
 
-import LoadingComponent from './components/LoadingPage/LoadingComponent'
 function App() {
-  const { ready, authenticated } = usePrivy();
+  const { ready, authenticated, user } = usePrivy();
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (authenticated && location.pathname === "/") {
-      navigate("/user", { replace: true });
+    if (!ready) {
+      return;
     }
-  }, [authenticated, navigate, location.pathname]);
+
+    if (authenticated && user?.wallet?.address) {
+      if (location.pathname === "/forbidden") {
+        navigate("/user", { replace: true });
+      } else if (location.pathname === "/") {
+        navigate("/user", { replace: true });
+      }
+    } else if (authenticated && !user?.wallet?.address) {
+      if (location.pathname !== "/forbidden") {
+        navigate("/forbidden", { replace: true });
+      }
+    }
+  }, [authenticated, navigate, location.pathname, ready, user?.wallet?.address]);
 
   if (!ready) {
     return (
@@ -49,7 +62,7 @@ function App() {
         }}
       >
         <ParticlesComponent />
-        <LoadingComponent/>
+        <LoadingComponent />
       </div>
     );
   }
@@ -99,29 +112,53 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/loans"
           element={
             <ProtectedRoute>
               <Header />
               <Sidemenu />
-              <LoansSection/>
+              <LoansSection />
             </ProtectedRoute>
           }
         />
-
         <Route
-        path="/profile"
-        element={
-          <ProtectedRoute>
-            <Header />
-            <Sidemenu />
-            <ProfileSection/>
-          </ProtectedRoute>
-        }
-      />
-
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Header />
+              <Sidemenu />
+              <ProfileSection />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/forbidden"
+          element={
+            user?.wallet?.address ? (
+              <div
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  zIndex: 9999,
+                }}
+              >
+                <ParticlesComponent />
+                <LoadingComponent />
+              </div>
+            ) : (
+              <ProtectedRoute>
+                <ForbiddenSection />
+              </ProtectedRoute>
+            )
+          }
+        />
       </Routes>
     </React.Fragment>
   );
