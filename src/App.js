@@ -24,7 +24,6 @@ import ProfileSection from "./components/Pages/ProfileSection";
 import LoadingComponent from './components/LoadingPage/LoadingComponent'
 function App() {
   const { ready, authenticated } = usePrivy();
-  const [loading,setLoading]= useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
