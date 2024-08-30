@@ -14,11 +14,22 @@ import anam from "../assets/images/asset1.png";
 import anon from "../assets/images/asset2.png";
 import gr from "../assets/images/gr.png";
 
+import { usePrivy } from "@privy-io/react-auth";
+
+
 export default function Workarea() {
+
+  const {user} = usePrivy();
+  // console.log("user is here:",user);
+
+  const formatAddress = (address) => {
+    if (!address) return '';
+    return `${address.slice(0, 5)}...${address.slice(-6)}`;
+  };
   return (
     <div className="main-container">
       <h4 className="text-black mb-4 d-blovk d-lg-none">
-        Welcome Back, Arkhan
+        Welcome Back,{formatAddress(user?.wallet?.address)} 
       </h4>
 
 

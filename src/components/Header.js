@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import Logo from "../assets/images/logo_dark.svg";
 import noti from "../assets/images/notification.svg";
 import mass from "../assets/images/message.svg";
-import user from "../assets/images/user.png";
+import userImage from "../assets/images/user.png";
 import search from "../assets/images/search.png";
 import Logomob from "../assets/images/Logo-mob.svg";
+import { usePrivy } from "@privy-io/react-auth";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { user } = usePrivy();
 
   // Function to handle scroll events
   const handleScroll = () => {
@@ -25,18 +27,21 @@ export default function Header() {
     };
   }, []);
 
+  const formatAddress = (address) => {
+    if (!address) return '';
+    return `${address.slice(0, 5)}...${address.slice(-6)}`;
+  };
+
   return (
     <>
-      <nav
-        className={`navbar top-menu fixed-top ${isScrolled ? "scrolled" : ""}`}
-      >
+      <nav className={`navbar top-menu fixed-top ${isScrolled ? "scrolled" : ""}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img className="webs" src={Logo} alt="Logo" />
             <img className="mobs" src={Logomob} alt="Mobile Logo" />
           </a>
           <div className="top-right-menu">
-            <div className="veltext me-auto">Welcome Back, Arkhan</div>
+            <div className="veltext me-auto">Welcome Back, {formatAddress(user?.wallet?.address)}</div>
             <div className="search webs">
               <div className="input-group">
                 <span className="input-group-text" id="basic-addon1">
@@ -97,8 +102,8 @@ export default function Header() {
                   <img src={mass} alt="Messages" />
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end">
-                <span className="notification-title">Message</span>
-                <hr className="notification-divider" />
+                  <span className="notification-title">Message</span>
+                  <hr className="notification-divider" />
                   <li>
                     <button className="dropdown-item" type="button">
                       Action
@@ -124,11 +129,11 @@ export default function Header() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img src={user} alt="User" />
+                  <img src={userImage} alt="User" />
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end">
-                <span className="notification-title">User Profile</span>
-                <hr className="notification-divider" />
+                  <span className="notification-title">User Profile</span>
+                  <hr className="notification-divider" />
                   <li>
                     <button className="dropdown-item" type="button">
                       Action
